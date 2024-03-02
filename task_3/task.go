@@ -14,9 +14,7 @@ func main() {
 func longestCommonPrefix(strs []string) string {
 	var result string
 
-	sort.Slice(strs, func(i, j int) bool {
-		return len(strs[i]) < len(strs[j])
-	})
+	sort.Strings(strs)
 
 	for i := 0; i < len(strs[0]); i++ {
 		if strs[0] == "" {
