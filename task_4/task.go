@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+//https://leetcode.com/problems/valid-parentheses/
+
 func main() {
 	fmt.Println(isValid("{}"))
 }
