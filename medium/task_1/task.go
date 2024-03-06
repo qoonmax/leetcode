@@ -12,39 +12,33 @@ type ListNode struct {
 }
 
 func main() {
-	l1 := &ListNode{Val: 9, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3}}}
-	l2 := &ListNode{Val: 9, Next: &ListNode{Val: 6}}
+	l1 := &ListNode{Val: 2, Next: &ListNode{Val: 4, Next: &ListNode{Val: 9}}}
+	l2 := &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 4, Next: &ListNode{Val: 9}}}}
 
 	fmt.Println(addTwoNumbers(l1, l2))
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	var resultNode = &ListNode{Val: 0}
 	var overDigit int
-
-	currentNode := resultNode
-	for l1 != nil || l2 != nil || overDigit != 0 {
-		sum := 0
-		if l1 != nil {
-			sum += l1.Val
-			l1 = l1.Next
-		}
-		if l2 != nil {
-			sum += l2.Val
-			l2 = l2.Next
-		}
-
-		sum += overDigit
+	var currList = l2
+	for l1 != nil || overDigit != 0 {
+		currList.Val += l1.Val + overDigit
 		overDigit = 0
 
-		if sum > 9 {
+		if currList.Val > 9 {
 			overDigit = 1
-			sum %= 10
+			currList.Val %= 10
 		}
 
-		currentNode.Next = &ListNode{Val: sum}
-		currentNode = currentNode.Next
+		if l1.Next == nil && currList.Next != nil || l1.Next == nil && overDigit != 0 {
+			l1.Next = &ListNode{Val: 0}
+		}
+		l1 = l1.Next
+		if currList.Next == nil && l1 != nil {
+			currList.Next = &ListNode{Val: 0}
+		}
+		currList = currList.Next
 	}
 
-	return resultNode.Next
+	return l2
 }
