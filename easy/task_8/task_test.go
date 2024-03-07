@@ -12,6 +12,7 @@ func TestStrStr(t *testing.T) {
 	}{
 		{input: []string{"leetcode", "leeto"}, expected: -1},
 		{input: []string{"sadbutsad", "sad"}, expected: 0},
+		{input: []string{"abb", "abaaa"}, expected: -1},
 	}
 
 	for _, testCase := range testCases {
