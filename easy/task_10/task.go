@@ -11,17 +11,17 @@ func main() {
 }
 
 func lengthOfLastWord(s string) int {
-	var x []byte
+	var counter int
 	for i := len(s) - 1; i >= 0; i-- {
 		if string(s[i]) == " " {
-			if len(x) > 0 {
-				return len(x)
+			if counter > 0 {
+				return counter
 			}
 			continue
 		} else {
-			x = append(x, s[i])
+			counter++
 		}
 	}
 
-	return len(x)
+	return counter
 }
