@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-//https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+//https://leetcode.com/problems/search-insert-position/
 
 func main() {
 	fmt.Println(searchInsert([]int{1, 3, 5, 6}, 5))
