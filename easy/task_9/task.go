@@ -7,7 +7,7 @@ import (
 //https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
 
 func main() {
-	fmt.Println(searchInsert([]int{1, 3, 5, 6}, 7))
+	fmt.Println(searchInsert([]int{1, 3, 5, 6}, 5))
 }
 
 func searchInsert(nums []int, target int) int {
@@ -20,24 +20,16 @@ func searchInsert(nums []int, target int) int {
 
 	for x < 0 {
 		if nums[m] < target {
-			if r == m {
-				l = r
-			} else {
-				l = m + 1
-			}
+			l = m + 1
 		} else if nums[m] > target {
-			if l == m {
-				r = l
-			} else {
-				r = m - 1
-			}
+			r = m - 1
 		} else {
-			x = m
+			return m
 		}
 
 		m = (l + r) / 2
 
-		if l == r {
+		if l == r || l > r {
 			if nums[m] > target {
 				x = m
 			} else if nums[m] < target {
