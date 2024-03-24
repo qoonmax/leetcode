@@ -18,6 +18,7 @@ func generateSlice(n int) []int {
 		for _, ok := m[x]; ok; {
 			x = rand.Int()
 		}
+		m[x] = struct{}{}
 		sl[i] = x
 	}
 
