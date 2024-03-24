@@ -14,12 +14,14 @@ func generateSlice(n int) []int {
 	m := make(map[int]struct{})
 
 	for i := 0; i < n; i++ {
-		x := rand.Int()
-		for _, ok := m[x]; ok; {
-			x = rand.Int()
+		for {
+			x := rand.Int()
+			if _, ok := m[x]; !ok {
+				m[x] = struct{}{}
+				sl[i] = x
+			}
+			break
 		}
-		m[x] = struct{}{}
-		sl[i] = x
 	}
 
 	return sl
