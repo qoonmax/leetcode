@@ -18,12 +18,15 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 		{input: "pwwkew", expected: 3},
 		{input: "", expected: 0},
 		{input: "d", expected: 1},
+		{input: "tmmzuxt", expected: 5},
+		{input: "dvdf", expected: 3},
+		{input: "aabaab!bb", expected: 3},
 	}
 
 	for _, testCase := range testCases {
 		t.Run(fmt.Sprintf("Test case: \"%s\"", testCase.input), func(t *testing.T) {
 			result := lengthOfLongestSubstring(testCase.input)
-			assert.Equal(result, testCase.expected, "they should be equal")
+			assert.Equal(testCase.expected, result, "they should be equal")
 		})
 	}
 }
