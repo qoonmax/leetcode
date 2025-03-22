@@ -2,4 +2,4 @@
 
 ![Image alt](https://github.com/qoonmax/leetcode/blob/main/bg.jpg)
 
-Решаю тут leetcode.
+My collection of solutions to Leetcode problems.
